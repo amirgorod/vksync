@@ -1,0 +1,23 @@
+vksync.admin_config_services_vksync:
+  path: '/admin/config/services/vksync'
+  defaults:
+    _form: '\Drupal\vksync\Form\SettingsForm'
+    _title: 'VK Sync: Settings'
+  requirements:
+    _permission: 'access administration pages'
+
+vksync.admin_config_services_vksync_access_token:
+  path: '/admin/config/services/vksync/access-token'
+  defaults:
+    _form: '\Drupal\vksync\Form\AccessTokenForm'
+    _title: 'VK Sync: Recieve access token'
+  requirements:
+    _permission: 'access administration pages'
+
+vksync.admin_config_services_vksync_test:
+  path: '/admin/config/services/vksync/test'
+  defaults:
+    _content: '\Drupal\vksync\Controller\VksyncController::test'
+    _title: 'test'
+  requirements:
+    _permission: 'access administration pages'

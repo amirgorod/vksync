@@ -1,0 +1,11 @@
+vksync.admin_config_services_vksync:
+  route_name: vksync.admin_config_services_vksync
+  base_route: vksync.admin_config_services_vksync
+  title: Settings
+  weight: 1
+
+vksync.admin_config_services_vksync_access_token:
+  route_name: vksync.admin_config_services_vksync_access_token
+  base_route: vksync.admin_config_services_vksync
+  title: Recieve access token
+  weight: 2

@@ -1,0 +1,4 @@
+vksync.admin_config_services_vksync:
+  title: VK Sync
+  route_name: vksync.admin_config_services_vksync
+  parent: system.admin_config_services

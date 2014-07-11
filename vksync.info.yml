@@ -1,0 +1,6 @@
+name: Vk Sync
+type: module
+description: The VKSync module synchronizes group or page on the VK.com social network and create nodes with group images.
+package: Custom
+core: 8.x
+version: 8.0-dev

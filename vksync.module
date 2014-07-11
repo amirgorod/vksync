@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file vksync.module
+ * Module file for vksync.
+ */
+
+use \Symfony\Component\HttpFoundation\Request;
+
+/**
+ * Constant definition.
+ */
+// Constants for API calls.
+define('VKSYNC_API_REQUEST_URI', 'https://api.vk.com/method');
+define('VKSYNC_REDIRECT_URI', 'http://oauth.vk.com/blank.html');
+define('VKSYNC_EDITAPP_URI', 'http://vk.com/editapp?act=create');
+define('VKSYNC_API_VERSION', '5.21');
+
+// Constants for access token process.
+define('VKSYNC_ACCESS_TOKEN_URI', 'https://oauth.vk.com/access_token');
+
+// Constants for authorize process.
+define('VKSYNC_AUTHORIZE_URI', 'https://oauth.vk.com/authorize');
+define('VKSYNC_AUTHORIZE_SCOPE', 'wall,groups,photos,offline');
+define('VKSYNC_AUTHORIZE_RESPONSE_TYPE', 'code');
+
+/*
+
+Application ID: 4101973
+Application secret code: 6GhO2n490rsQTq2pKc5n
+Owner ID: 46907042
+Code: 5f5c4173afe5e3387d
+
+ */
+
+/**
+ * Implements hook_help().
+ */
+function vksync_help($route_name, Request $request) {
+  switch ($route_name) {
+    case 'help.page.vksync':
+    $output = '<h3>' . t('Vksync') . '</h3>';
+    $output .= '<p>' . t('The VKSync module synchronizes group or page on the VK.com social network and create nodes with group images.') . '</p>';
+    return $output;
+  }
+}
+

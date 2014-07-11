@@ -1,0 +1,118 @@
+<?php
+
+/**
+ * @file vksync.install
+ * Install, update and uninstall functions for the vksync module.
+ */
+
+/**
+ * Implements hook_schema().
+ *
+ * Defines the database tables used by module.
+ *
+ * @see hook_schema()
+ * @ingroup vksync_schema
+ */
+function vksync_schema() {
+  $schema['vksync_album'] = array(
+    'description' => 'Album table.',
+    'fields' => array(
+      'aid' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique album ID.',
+      ),
+      'title' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Album title.',
+      ),
+      'description' => array(
+        'description' => 'Album description.',
+        'type' => 'text',
+        'not null' => TRUE,
+        'size' => 'big',
+        'default' => '',
+      ),
+      'thumb_id' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => "Album thumb id",
+      ),
+      'thumb_src' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Image src.',
+        'default' => '',
+      ),
+      'thumb_type' => array(
+        'type' => 'varchar',
+        'length' => 10,
+        'not null' => TRUE,
+        'description' => 'Image type.',
+        'default' => '',
+      ),
+      'thumb_width' => array(
+        'type' => 'varchar',
+        'length' => 10,
+        'not null' => TRUE,
+        'description' => 'Image width.',
+        'default' => '',
+      ),
+      'thumb_height' => array(
+        'type' => 'varchar',
+        'length' => 10,
+        'not null' => TRUE,
+        'description' => 'Image height.',
+        'default' => '',
+      ),
+      'owner_id' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => "Album owner id",
+      ),
+      'wall_owner' => array(
+        'type' => 'varchar',
+        'length' => 60,
+        'not null' => TRUE,
+        'default' => 'group',
+        'description' => 'Who owns the ID.',
+      ),
+      'can_upload' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 1,
+        'description' => "Album access",
+      ),
+      'created' => array(
+        'description' => 'The Unix timestamp when the version was created.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'updated' => array(
+        'description' => 'The Unix timestamp when the version was updated.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'synced' => array(
+        'description' => 'The Unix timestamp when the version was synced.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'unique keys' => array(
+      'aid' => array('aid'),
+    ),
+    'primary key' => array('aid'),
+  );
+
+  return $schema;
+}
